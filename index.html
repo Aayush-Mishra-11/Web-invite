@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>AniCos</title>
+    <meta name="theme-color" content="#0b1220" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-950 text-slate-200 antialiased min-h-screen font-[Inter]">
+    <!-- Ambient background -->
+    <div class="pointer-events-none fixed inset-0 -z-10">
+      <div class="absolute inset-0 bg-[radial-gradient(1200px_600px_at_80%_-10%,rgba(88,28,135,0.25),transparent_60%),radial-gradient(900px_500px_at_-10%_20%,rgba(59,130,246,0.2),transparent_60%),radial-gradient(800px_400px_at_50%_110%,rgba(16,185,129,0.16),transparent_60%)]"></div>
+      <div class="absolute inset-0 mix-blend-overlay opacity-[0.06]" style="background-image:url('https://images.unsplash.com/photo-1526318472351-c75fcf070305?auto=format&fit=crop&w=1200&q=60'); background-size:cover; background-position:center;"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(2,6,23,0.8),rgba(2,6,23,0.95))]"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-slate-950/50 border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="h-8 w-8 rounded-md bg-white/5 border border-white/15 flex items-center justify-center tracking-tight">
+            <img src="static/iso.png" alt="AniCos Logo" class="h-8 w-8 rounded-md flex items-center justify-center"/>
+          </div>
+          <div class="hidden sm:flex items-center gap-2 text-xs text-slate-400">
+            <span class="text-lg sm:text-xl font-semibold text-slate-300">AniCos</span>
+          </div>
+        </div>
+
+        <nav class="flex items-center gap-1">
+          <button data-nav="home" class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-slate-100 hover:bg-white/5 border border-transparent hover:border-white/10 transition">Home</button>
+          <button data-nav="story" class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-slate-100 hover:bg-white/5 border border-transparent hover:border-white/10 transition">Event</button>
+          <button data-nav="rsvp" class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-slate-100 hover:bg-white/5 border border-transparent hover:border-white/10 transition">Book Now</button>
+        </nav>
+
+        <div class="hidden sm:flex items-center gap-2">
+          <button class="group inline-flex items-center gap-2 px-3 py-2 rounded-md bg-indigo-500/10 text-indigo-300 hover:text-indigo-200 hover:bg-indigo-500/20 border border-indigo-400/20 hover:border-indigo-300/30 transition">
+            <i data-lucide="swords" class="h-4 w-4"></i>
+            <span class="text-sm font-medium">Get Invite</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+      <!-- Hero / Home -->
+      <section id="home" class="relative py-16 sm:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs text-slate-300 mb-4 opacity-0 translate-y-4 blur-sm transition duration-700 delay-100" data-animate>
+              <i data-lucide="zap" class="h-3.5 w-3.5 text-amber-300"></i>
+              <span>Exclusive Anime Invitation</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-100 opacity-0 translate-y-4 blur-sm transition duration-700 delay-150" data-animate>
+              Cosmic Clash
+            </h1>
+            <p class="mt-4 text-base sm:text-lg text-slate-400 max-w-xl opacity-0 translate-y-4 blur-sm transition duration-700 delay-200" data-animate>
+              Get ready for a magical day filled with cosplay competitions, glowing lantern festivals, interactive photo booths, thrilling anime-themed games, and a special meet & greet with fellow fans. From your favorite characters coming to life to breathtaking moments under the lantern lights—this is the ultimate celebration of anime culture!
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 opacity-0 translate-y-4 blur-sm transition duration-700 delay-300" data-animate>
+              <button data-nav="rsvp" class="group inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-indigo-500 text-slate-50 hover:bg-indigo-400 border border-indigo-300/20 hover:border-indigo-200/30 shadow-[0_0_0_1px_rgba(255,255,255,0.06)_inset] transition">
+                <i data-lucide="calendar-heart" class="h-5 w-5"></i>
+                <span class="text-sm font-medium">Tickets</span>
+              </button>
+              <button data-nav="story" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-white/5 text-slate-200 hover:text-slate-100 hover:bg-white/10 border border-white/10 hover:border-white/20 transition">
+                <i data-lucide="book-open" class="h-5 w-5"></i>
+                <span class="text-sm font-medium">Event Details</span>
+              </button>
+            </div>
+
+            <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <!-- Pirate -->
+              <div class="rounded-lg border border-white/10 bg-white/5 p-3 flex items-center gap-3 opacity-0 translate-y-4 blur-sm transition duration-700 delay-300" data-animate>
+                <div class="h-9 w-9 rounded-md bg-amber-500/10 border border-amber-400/20 flex items-center justify-center text-amber-300">
+                  <i data-lucide="ship" class="h-5 w-5"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-600">Pirate's </p>
+                  <p class="text-sm font-medium text-slate-400">King's Will</p>
+                </div>
+              </div>
+              <!-- Saiyan -->
+              <div class="rounded-lg border border-white/10 bg-white/5 p-3 flex items-center gap-3 opacity-0 translate-y-4 blur-sm transition duration-700 delay-350" data-animate>
+                <div class="h-9 w-9 rounded-md bg-orange-500/10 border border-orange-400/20 flex items-center justify-center text-orange-300">
+                  <i data-lucide="sun" class="h-5 w-5"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-400">Saiyan's </p>
+                  <p class="text-sm font-medium text-slate-200">Limit Break</p>
+                </div>
+              </div>
+              <!-- Shinigami -->
+              <div class="rounded-lg border border-white/10 bg-white/5 p-3 flex items-center gap-3 opacity-0 translate-y-4 blur-sm transition duration-700 delay-400" data-animate>
+                <div class="h-9 w-9 rounded-md bg-cyan-500/10 border border-cyan-400/20 flex items-center justify-center text-cyan-300">
+                  <i data-lucide="swords" class="h-5 w-5"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-400">Shinigami's </p>
+                  <p class="text-sm font-medium text-slate-200">Soul Reapers</p>
+                </div>
+              </div>
+              <!-- Shinobi -->
+              <div class="rounded-lg border border-white/10 bg-white/5 p-3 flex items-center gap-3 opacity-0 translate-y-4 blur-sm transition duration-700 delay-450" data-animate>
+                <div class="h-9 w-9 rounded-md bg-lime-500/10 border border-lime-400/20 flex items-center justify-center text-lime-300">
+                  <i data-lucide="wind" class="h-5 w-5"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-400">Shinobi's </p>
+                  <p class="text-sm font-medium text-slate-200">Hidden Leaf</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 text-sm text-slate-400 opacity-0 translate-y-4 blur-sm transition duration-700 delay-500" data-animate>
+              <span class="text-slate-300">Date:</span> 29 Sept, 8:00 PM • <span class="text-slate-300">Venue:</span> Unipolis
+            </div>
+          </div>
+
+          <!-- Character Visualizer -->
+          <div class="relative">
+            <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 opacity-0 translate-y-4 blur-sm transition duration-700 delay-300" data-animate>
+              <div class="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-gradient-to-tr from-indigo-500/20 to-emerald-400/10 blur-2xl"></div>
+              <div class="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gradient-to-tr from-amber-400/10 to-pink-500/20 blur-2xl"></div>
+
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="sparkles" class="h-5 w-5 text-slate-300"></i>
+                  <p class="text-sm text-slate-300">Hi.. I am a MOMO</p>
+                </div>
+              </div>
+
+              <div class="relative aspect-[4/3] rounded-xl bg-gradient-to-b from-slate-900/60 to-slate-900/30 border border-white/10 overflow-hidden">
+                <!-- Scene ornaments -->
+                <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-indigo-500/10 to-transparent"></div>
+                <div class="absolute inset-0">
+                  <!-- Stars -->
+                  <div class="absolute top-6 left-6 h-2 w-2 rounded-full bg-white/70 animate-ping"></div>
+                  <div class="absolute top-10 left-24 h-1.5 w-1.5 rounded-full bg-white/60 animate-pulse"></div>
+                  <div class="absolute top-16 right-16 h-1.5 w-1.5 rounded-full bg-white/70 animate-pulse"></div>
+                </div>
+
+                <!-- Character Lottie animation (pop effect) -->
+                <div class="pop inset-0 flex items-center justify-center">
+                  <lottie-player id="rioLottie" src="rio.json" background="transparent" speed="0.8" style="width: 90%; height: 90%;"
+                    loop autoplay
+                    class="pop inset-5 scale-75 opacity-0 transition-all duration-700 ease-out"
+                  ></lottie-player>
+                </div>
+                <!-- Speed lines -->
+                <div class="absolute left-6 top-1/4 h-0.5 w-16 bg-gradient-to-r from-transparent via-white/60 to-transparent blur-[1px]"></div>
+                <div class="absolute right-8 top-2/3 h-0.5 w-20 bg-gradient-to-r from-transparent via-white/60 to-transparent blur-[1px]"></div>
+              </div>
+
+              <div class="mt-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="h-8 w-8 rounded-md border border-white/10 bg-white/5 flex items-center justify-center text-indigo-300">
+                    <i data-lucide="sparkles" class="h-4 w-4"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-slate-400">Hi weebes !..<br> Let's meet in the Cosmic Clash, <br> Excited to be there <a href="#" class="text-indigo-300">BOOK YOUR TICKETS NOW</a></p>
+                  </div>
+                </div>
+                <button data-nav="story" class="text-xs px-3 py-2 rounded-md border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-slate-300 hover:text-slate-100 transition">
+                  Explore Lore
+                </button>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </section>
+
+      <!-- Events Section -->
+      <section id="story" class="hidden relative py-16 sm:py-20">
+        <div class="max-w-3xl">
+          <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-100">Events</h2>
+          <p class="mt-3 text-slate-400">
+            Celebrate the spirit of anime like never before! Experience jaw-dropping moments and unforgettable adventures.
+          </p>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Event 1 -->
+          <article class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+            <div class="absolute inset-0">
+              <img alt="" src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1400&q=60" class="h-full w-full object-cover opacity-50 group-hover:opacity-60 transition" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-slate-950/20"></div>
+            </div>
+            <div class="relative p-6 flex items-start gap-4">
+              <div class="h-10 w-10 rounded-lg bg-amber-500/10 border border-amber-400/20 text-amber-300 flex items-center justify-center">
+                <i data-lucide="ship" class="h-5 w-5"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold tracking-tight text-slate-100">Cosplay Completions</h3>
+                <p class="mt-1 text-sm text-slate-300">Unleash your inner anime hero! Join us for a spectacular cosplay showdown.</p>
+                <div class="mt-4 inline-flex items-center gap-2 text-xs text-amber-300/90">
+                  <i data-lucide="compass" class="h-4 w-4"></i>
+                  <span>Grand Voyage Arc</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event 2 -->
+          <article class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+            <div class="absolute inset-0">
+              <img alt="" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=60" class="h-full w-full object-cover opacity-50 group-hover:opacity-60 transition" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-slate-950/20"></div>
+            </div>
+            <div class="relative p-6 flex items-start gap-4">
+              <div class="h-10 w-10 rounded-lg bg-orange-500/10 border border-orange-400/20 text-orange-300 flex items-center justify-center">
+                <i data-lucide="sun" class="h-5 w-5"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold tracking-tight text-slate-100">Lantern Festival</h3>
+                <p class="mt-1 text-sm text-slate-300">Light up the night sky with glowing dreams and anime magic.</p>
+                <div class="mt-4 inline-flex items-center gap-2 text-xs text-orange-300/90">
+                  <i data-lucide="bolt" class="h-4 w-4"></i>
+                  <span>Ascension Saga</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event 3 -->
+          <article class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+            <div class="absolute inset-0">
+              <img alt="" src="https://images.unsplash.com/photo-1519683109089-d95f3c1c1b76?auto=format&fit=crop&w=1400&q=60" class="h-full w-full object-cover opacity-50 group-hover:opacity-60 transition" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-slate-950/20"></div>
+            </div>
+            <div class="relative p-6 flex items-start gap-4">
+              <div class="h-10 w-10 rounded-lg bg-cyan-500/10 border border-cyan-400/20 text-cyan-300 flex items-center justify-center">
+                <i data-lucide="swords" class="h-5 w-5"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold tracking-tight text-slate-100">Photo Booths & Games</h3>
+                <p class="mt-1 text-sm text-slate-300">Capture epic memories in our photo booths, play exciting anime-inspired games, relive the anime vibe forever.</p>
+                <div class="mt-4 inline-flex items-center gap-2 text-xs text-cyan-300/90">
+                  <i data-lucide="feather" class="h-4 w-4"></i>
+                  <span>Midnight Court</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event 4 -->
+          <article class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+            <div class="absolute inset-0">
+              <img alt="" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=60" class="h-full w-full object-cover opacity-50 group-hover:opacity-60 transition" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-slate-950/20"></div>
+            </div>
+            <div class="relative p-6 flex items-start gap-4">
+              <div class="h-10 w-10 rounded-lg bg-lime-500/10 border border-lime-400/20 text-lime-300 flex items-center justify-center">
+                <i data-lucide="wind" class="h-5 w-5"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold tracking-tight text-slate-100">Meet and Greet</h3>
+                <p class="mt-1 text-sm text-slate-300">Connect with fellow fans and share your love for anime face-to-face.</p>
+                <div class="mt-4 inline-flex items-center gap-2 text-xs text-lime-300/90">
+                  <i data-lucide="shield" class="h-4 w-4"></i>
+                  <span>Hidden Pledge</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-10 flex items-center justify-between border-t border-white/10 pt-6">
+          <p class="text-sm text-slate-400">Choose your path. Your Ticket seals fate.</p>
+          <button data-nav="rsvp" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-indigo-500 text-slate-50 hover:bg-indigo-400 border border-indigo-300/20 hover:border-indigo-200/30 transition">
+            <i data-lucide="calendar-heart" class="h-5 w-5"></i>
+            <span class="text-sm font-medium">BOOK NOW</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Ticket Section -->
+      <section id="rsvp" class="hidden relative py-16 sm:py-20">
+        <div class="max-w-3xl">
+          <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-100">BOOK NOW</h2>
+          <p class="mt-3 text-slate-400">Reserve your place at the convergence. Limited entry. Power up your presence.</p>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6">
+            <form id="rsvpForm" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="col-span-1">
+                <label class="block text-sm text-slate-300 mb-1">Full Name</label>
+                <input type="text" required placeholder="Your Name" class="w-full px-3 py-2.5 rounded-md bg-slate-900/60 border border-white/10 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-400/40 transition" />
+              </div>
+              <div class="col-span-1">
+                <label class="block text-sm text-slate-300 mb-1">Email</label>
+                <input type="email" required placeholder="you@example.com" class="w-full px-3 py-2.5 rounded-md bg-slate-900/60 border border-white/10 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-400/40 transition" />
+              </div>
+              <div class="col-span-1">
+                <label class="block text-sm text-slate-300 mb-1">Guests</label>
+                <input type="number" min="1" max="8" value="1" class="w-full px-3 py-2.5 rounded-md bg-slate-900/60 border border-white/10 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-400/40 transition" />
+              </div>
+              <div class="col-span-1">
+                <label class="block text-sm text-slate-300 mb-1">Faction</label>
+                <div class="relative">
+                  <select class="w-full appearance-none px-3 py-2.5 pr-10 rounded-md bg-slate-900/60 border border-white/10 text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-400/40 transition">
+                    <option>Select Faction</option>
+                    <option>Pirate Crew</option>
+                    <option>Saiyan Legacy</option>
+                    <option>Shinigami Squad</option>
+                    <option>Hidden Leaf Shinobi</option>
+                  </select>
+                  <i data-lucide="chevron-down" class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400"></i>
+                </div>
+              </div>
+              <div class="col-span-1 sm:col-span-2">
+                <label class="block text-sm text-slate-300 mb-1">Message</label>
+                <textarea rows="4" placeholder="Leave a note..." class="w-full px-3 py-2.5 rounded-md bg-slate-900/60 border border-white/10 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-400/40 transition"></textarea>
+              </div>
+
+              <div class="col-span-1 sm:col-span-2 flex items-center justify-between pt-2">
+                <p class="text-xs text-slate-500">By submitting, your name will be inscribed in the Hall of Heroes.</p>
+                <button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-emerald-500 text-slate-950 hover:bg-emerald-400 border border-emerald-300/20 hover:border-emerald-200/30 transition">
+                  <i data-lucide="send" class="h-5 w-5"></i>
+                  <span class="text-sm font-medium">Confirm Ticket</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div class="flex items-center gap-2 text-slate-300">
+              <i data-lucide="map-pin" class="h-5 w-5"></i>
+              <p class="text-sm">Unipolis</p>
+            </div>
+            <div class="mt-2 text-xs text-slate-400">29 Sept • 8:00 PM</div>
+
+            <div class="mt-6 grid grid-cols-2 gap-3">
+              <div class="rounded-lg border border-white/10 bg-slate-900/40 p-3">
+                <div class="text-xs text-slate-400">Day 1</div>
+                <div class="text-lg sm:text-xl font-semibold text-slate-200">Cosplay Competition</div>
+              </div>
+              <div class="rounded-lg border border-white/10 bg-slate-900/40 p-3">
+                <div class="text-xs text-slate-400">Day 2</div>
+                <div class="text-lg sm:text-xl font-semibold text-slate-200">Lantern Festival</div>
+              </div>
+              <div class="rounded-lg border border-white/10 bg-slate-900/40 p-3">
+                <div class="text-xs text-slate-400">Day 3</div>
+                <div class="text-lg sm:text-xl font-semibold text-slate-200">Meet and Greet</div>
+              </div>
+              <div class="rounded-lg border border-white/10 bg-slate-900/40 p-3">
+                <div class="text-xs text-slate-400">Contact</div>
+                <div class="text-lg sm:text-xl font-semibold text-slate-200">anicos@lpu.in</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="py-10 border-t border-white/10 mt-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+          <p>© 2025 AniCos. All rights reserved.</p>
+          <div class="flex items-center gap-4">
+            <a href="#" class="hover:text-slate-300 transition inline-flex items-center gap-1">
+              <i data-lucide="sparkle" class="h-4 w-4"></i> Highlights
+            </a>
+            <a href="#" data-nav="story" class="hover:text-slate-300 transition inline-flex items-center gap-1">
+              <i data-lucide="book-open" class="h-4 w-4"></i> Event
+            </a>
+            <a href="#" data-nav="rsvp" class="hover:text-slate-300 transition inline-flex items-center gap-1">
+              <i data-lucide="calendar" class="h-4 w-4"></i> BOOK NOW
+            </a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Clash Overlay (page fight transition) -->
+    <div id="clashOverlay" class="fixed inset-0 z-[60] hidden items-center justify-center bg-slate-950/80 backdrop-blur-sm">
+      <lottie-player id="ghibliLottie" src="Gibli Tribute.json" background="transparent" speed="0.8" style="width: 30rem; height: 30rem;" loop autoplay class="opacity-0 transition-opacity duration-500 z-10"></lottie-player>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-[70] hidden">
+      <div class="rounded-lg border border-emerald-400/30 bg-emerald-500/15 text-emerald-300 px-4 py-2 text-sm shadow-lg backdrop-blur">
+         Details received! See you at the convergence.
+      </div>
+    </div>
+
+    <!-- Scripts -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script>
+      // Init icons
+      document.addEventListener('DOMContentLoaded', () => {
+        if (window.lucide) {
+          window.lucide.createIcons({ attrs: { 'stroke-width': 1.5 } });
+        }
+      });
+
+      // Section navigation with clash animation
+      const sections = ['home', 'story', 'rsvp'];
+      let current = 'home';
+
+  const overlay = document.getElementById('clashOverlay');
+  const ghibliLottie = document.getElementById('ghibliLottie');
+
+      function showSection(id) {
+        sections.forEach(s => {
+          document.getElementById(s).classList.toggle('hidden', s !== id);
+        });
+        current = id;
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+
+      function clashTo(id) {
+        if (id === current) return;
+        // show overlay
+        overlay.classList.remove('hidden');
+        overlay.classList.add('flex');
+        if (ghibliLottie) {
+          ghibliLottie.classList.remove('opacity-0');
+          ghibliLottie.classList.add('opacity-100');
+        }
+
+        // sequence
+        setTimeout(() => {
+          showSection(id);
+        }, 420);
+
+        setTimeout(() => {
+          if (ghibliLottie) {
+            ghibliLottie.classList.remove('opacity-100');
+            ghibliLottie.classList.add('opacity-0');
+          }
+          overlay.classList.remove('flex');
+          overlay.classList.add('hidden');
+        }, 800);
+      }
+
+      // Bind nav
+      document.querySelectorAll('[data-nav]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const id = btn.getAttribute('data-nav');
+          clashTo(id);
+        });
+      });
+
+
+      // Initial staged reveal using transitions (not JS animations)
+      const staged = Array.from(document.querySelectorAll('[data-animate]'));
+      window.addEventListener('load', () => {
+        staged.forEach((el, i) => {
+          const baseDelay = 80;
+          setTimeout(() => {
+            el.classList.remove('opacity-0','translate-y-4','blur-sm');
+          }, 150 + i * baseDelay);
+        });
+        // Pop effect for rio Lottie on load if home is visible
+        triggerRioPop();
+      });
+
+      // Pop effect for rio Lottie animation
+      function triggerRioPop() {
+        const rioLottie = document.getElementById('rioLottie');
+        if (rioLottie) {
+          rioLottie.classList.remove('scale-75','opacity-0');
+          rioLottie.classList.add('scale-100','opacity-100');
+        }
+      }
+
+      // Also trigger pop when home section is shown
+      const origShowSection = showSection;
+      showSection = function(id) {
+        origShowSection(id);
+        if (id === 'home') {
+          setTimeout(triggerRioPop, 100); // slight delay for smoothness
+        }
+      }
+
+      // RSVP submit -> toast
+      const form = document.getElementById('rsvpForm');
+      const toast = document.getElementById('toast');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          toast.classList.remove('hidden');
+          setTimeout(() => {
+            toast.classList.add('hidden');
+          }, 2200);
+        });
+      }
+    </script>
+  </body>
+</html>
