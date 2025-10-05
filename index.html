@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>AniCos</title>
+    <meta name="theme-color" content="#0b1220" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preload" href="rio.json" as="fetch" type="application/json" crossorigin="anonymous">
+    <link rel="preload" href="Gibli Tribute.json" as="fetch" type="application/json" crossorigin="anonymous">
+    <style>
+      #story {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-slate-200 antialiased min-h-screen font-[Inter]">
+    <!-- Ambient background -->
+    <div class="pointer-events-none fixed inset-0 -z-10">
+      <div class="absolute inset-0 bg-[radial-gradient(1200px_600px_at_80%_-10%,rgba(88,28,135,0.25),transparent_60%),radial-gradient(900px_500px_at_-10%_20%,rgba(59,130,246,0.2),transparent_60%),radial-gradient(800px_400px_at_50%_110%,rgba(16,185,129,0.16),transparent_60%)]"></div>
+      <div class="absolute inset-0 mix-blend-overlay opacity-[0.06]" style="background-image:url('https://images.unsplash.com/photo-1526318472351-c75fcf070305?auto=format&fit=crop&w=1200&q=60'); background-size:cover; background-position:center;"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(2,6,23,0.8),rgba(2,6,23,0.95))]"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-slate-950/50 border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="h-8 w-8 rounded-md bg-white/5 border border-white/15 flex items-center justify-center tracking-tight">
+            <img src="static/iso.png" alt="AniCos Logo" class="h-8 w-8 rounded-md flex items-center justify-center"/>
+          </div>
+          <div class="hidden sm:flex items-center gap-2 text-xs text-slate-400">
+            <span class="text-lg sm:text-xl font-semibold text-slate-300">AniCos</span>
+          </div>
+        </div>
+
+        <nav class="flex items-center gap-1">
+          <button data-nav="home" class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-slate-100 hover:bg-white/5 border border-transparent hover:border-white/10 transition">Home</button>
+          <button data-nav="story" class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-slate-100 hover:bg-white/5 border border-transparent hover:border-white/10 transition">Event</button>
+          <button data-nav="gallery" class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-slate-100 hover:bg-white/5 border border-transparent hover:border-white/10 transition">Gallery</button>
+        </nav>
+
+        <div class="hidden sm:flex items-center gap-2">
+          <a href="https://forms.gle/CmdgKDX7EXQystpp6" class="group inline-flex items-center gap-2 px-3 py-2 rounded-md bg-indigo-500/10 text-indigo-300 hover:text-indigo-200 hover:bg-indigo-500/20 border border-indigo-400/20 hover:border-indigo-300/30 transition">
+            <i data-lucide="swords" class="h-4 w-4"></i>
+            <button target="_blank" class="text-sm font-medium underline">Get Invite</button>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 relative">
+      <section id="home" class="relative py-16 sm:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <!-- Character Visualizer -->
+          <div class="relative order-1 lg:order-1 lg:-ml-15">
+            <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 opacity-0 translate-y-4 blur-sm transition duration-700 delay-300" data-animate>
+              <div class="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-gradient-to-tr from-indigo-500/20 to-emerald-400/10 blur-2xl"></div>
+              <div class="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gradient-to-tr from-amber-400/10 to-pink-500/20 blur-2xl"></div>
+
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="sparkles" class="h-5 w-5 text-slate-300"></i>
+                  <p class="text-sm text-slate-300">Hi.. I am MOMO</p>
+                </div>
+              </div>
+
+              <div class="relative aspect-[4/3] rounded-xl bg-gradient-to-b from-slate-900/60 to-slate-900/30 border border-white/10 overflow-hidden">
+                <!-- Scene ornaments -->
+                <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-indigo-500/10 to-transparent"></div>
+                <div class="absolute inset-0">
+                  <!-- Stars -->
+                  <div class="absolute top-6 left-6 h-2 w-2 rounded-full bg-white/70 animate-ping"></div>
+                  <div class="absolute top-10 left-24 h-1.5 w-1.5 rounded-full bg-white/60 animate-pulse"></div>
+                  <div class="absolute top-16 right-16 h-1.5 w-1.5 rounded-full bg-white/70 animate-pulse"></div>
+                </div>
+
+                <!-- Character Lottie animation (pop effect) -->
+                <div class="pop inset-0 flex items-center justify-center">
+                  <lottie-player id="rioLottie" src="rio.json" background="transparent" speed="0.8" style="width: 90%; height: 90%;"
+                    loop autoplay
+                    class="pop inset-5 scale-75 opacity-0 transition-all duration-700 ease-out"
+                  ></lottie-player>
+                </div>
+                <!-- Speed lines -->
+                <div class="absolute left-6 top-1/4 h-0.5 w-16 bg-gradient-to-r from-transparent via-white/60 to-transparent blur-[1px]"></div>
+                <div class="absolute right-8 top-2/3 h-0.5 w-20 bg-gradient-to-r from-transparent via-white/60 to-transparent blur-[1px]"></div>
+              </div>
+
+              <div class="mt-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="h-8 w-8 rounded-md border border-white/10 bg-white/5 flex items-center justify-center text-indigo-300">
+                    <i data-lucide="sparkles" class="h-4 w-4"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-slate-400">Hi weebes !..<br> Let's meet in the COSCON</p>
+                  </div>
+                </div>
+                <button data-nav="story" class="text-xs px-3 py-2 rounded-md border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-slate-300 hover:text-slate-100 transition">
+                  Explore Lore
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event Details (now on the right) -->
+          <div class="order-2 lg:order-2">
+            <div class="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs text-slate-300 mb-4 opacity-0 translate-y-4 blur-sm transition duration-700 delay-100" data-animate>
+              <i data-lucide="zap" class="h-3.5 w-3.5 text-amber-300"></i>
+              <span>Exclusive Anime Invitation</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-100 opacity-0 translate-y-4 blur-sm transition duration-700 delay-150" data-animate>
+              COSCON 2.0
+            </h1>
+            <p class="mt-4 text-base sm:text-lg text-slate-400 max-w-xl opacity-0 translate-y-4 blur-sm transition duration-700 delay-200" data-animate>
+              OHAYO MINNA! 🌟
+              Get ready to power up your fandom because COSCON 2.0 is back – bigger, brighter, and bolder! 🎉✨
+              Organized by AniCos under the aegis of the Division of Youth Affairs, LPU, this 4-day festival is a paradise for otakus, dreamers, and creators. Whether you want to show off your talent, cosplay your favorite hero, hunt for treasures with your nakama 🕵, or light the sky with glowing lanterns 🏮 – COSCON 2.0 has it all!
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 opacity-0 translate-y-4 blur-sm transition duration-700 delay-300" data-animate>
+              <a data-nav="gallery" class="group inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-indigo-500 text-slate-50 hover:bg-indigo-400 border border-indigo-300/20 hover:border-indigo-200/30 shadow-[0_0_0_1px_rgba(255,255,255,0.06)_inset] transition">
+              <i data-lucide="calendar-heart" class="h-5 w-5"></i>
+              <span class="text-sm font-medium">Gallery</span>
+              </a>
+              <a href="coscon_details.html" target="_blank" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-white/5 text-slate-200 hover:text-slate-100 hover:bg-white/10 border border-white/10 hover:border-white/20 transition">
+              <i data-lucide="book-open" class="h-5 w-5"></i>
+              <span class="text-sm font-medium">Event Details</span>
+              </a>
+            </div>
+
+            <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <!-- event 1 -->
+              <div class="rounded-lg border border-white/10 bg-white/5 p-3 flex items-center gap-3 opacity-0 translate-y-4 blur-sm transition duration-700 delay-300" data-animate>
+                <div class="h-9 w-9 rounded-md bg-amber-500/10 border border-amber-400/20 flex items-center justify-center text-amber-300">
+                  <i data-lucide="ship" class="h-5 w-5"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-slate-200">Talent Hunt</p>
+                </div>
+              </div>
+              <!-- event 2 -->
+              <div class="rounded-lg border border-white/10 bg-white/5 p-3 flex items-center gap-3 opacity-0 translate-y-4 blur-sm transition duration-700 delay-350" data-animate>
+                <div class="h-9 w-9 rounded-md bg-orange-500/10 border border-orange-400/20 flex items-center justify-center text-orange-300">
+                  <i data-lucide="sun" class="h-5 w-5"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-slate-200">Treasure Hunt</p>
+                </div>
+              </div>
+              <!-- event 3 -->
+              <div class="rounded-lg border border-white/10 bg-white/5 p-3 flex items-center gap-3 opacity-0 translate-y-4 blur-sm transition duration-700 delay-400" data-animate>
+                <div class="h-9 w-9 rounded-md bg-cyan-500/10 border border-cyan-400/20 flex items-center justify-center text-cyan-300">
+                  <i data-lucide="swords" class="h-5 w-5"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-slate-200">Cosplay Competition</p>
+                </div>
+              </div>
+              <!-- event 4 -->
+              <div class="rounded-lg border border-white/10 bg-white/5 p-3 flex items-center gap-3 opacity-0 translate-y-4 blur-sm transition duration-700 delay-450" data-animate>
+                <div class="h-9 w-9 rounded-md bg-lime-500/10 border border-lime-400/20 flex items-center justify-center text-lime-300">
+                  <i data-lucide="wind" class="h-5 w-5"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-slate-200">Lantern Festival</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 text-sm text-slate-400 opacity-0 translate-y-4 blur-sm transition duration-700 delay-500" data-animate>
+              <span class="text-slate-300">Dates:</span> 03-07 Oct • <span class="text-slate-300">Venue:</span> Helipad
+            </div>
+          </div>
+        </div> 
+      </section>
+      <!-- Events Section -->
+      <section id="story" class="relative py-16 sm:py-20">
+        <div class="max-w-3xl">
+          <h1 class="text-5xl sm:text-6xl font-bold tracking-tight text-slate-100">Events</h1>
+          <p class="mt-3 text-slate-400">
+            <h3 class="text-xl text-slate-100">Welcome to the World of AniCos Events :-) </h3>
+            Step into a realm where imagination comes alive and every day feels like a new episode of your favorite series! Whether you’re a die-hard anime fan, a cosplay enthusiast, a gamer, or someone who just loves creative festivals, AniCos Events are designed to bring the community together in unforgettable ways.
+          </p>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="flex flex-col gap-6">
+            <!-- Coscon Event -->
+            <article class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+              <div class="absolute inset-0">
+                <img alt="" src="static/coscon_image.webp" class="h-full w-full object-cover opacity-50 group-hover:opacity-60 transition" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-slate-950/20"></div>
+              </div>
+              <div class="relative p-6 flex items-start gap-4">
+                <div class="h-10 w-10 rounded-lg bg-amber-500/10 border border-amber-400/20 text-amber-300 flex items-center justify-center">
+                  <i data-lucide="zap" class="h-5 w-5"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold tracking-tight text-slate-100">COSCON</h3>
+                  <p class="mt-1 text-sm text-slate-300">Experience the magic of cosplay, treasure hunts, and more. Click to explore!</p>
+                <a href="coscon_details.html" target="_blank" class="text-xs px-3 py-1.5 rounded-md border border-orange-400/20 text-orange-300 hover:text-orange-200 bg-orange-500/10 hover:bg-orange-500/20 transition cursor-pointer">LEARN MORE</a>
+              </div>
+            </article>
+
+            <!-- Spooky Nights Event -->
+            <article class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+              <div class="absolute inset-0">
+              <img alt="" src="static/spooky_nights.webp" class="h-full w-full object-cover opacity-50 group-hover:opacity-60 transition" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-slate-950/20"></div>
+              </div>
+              <div class="relative p-6 flex items-start gap-4">
+              <div class="h-10 w-10 rounded-lg bg-orange-500/10 border border-orange-400/20 text-orange-300 flex items-center justify-center">
+                <i data-lucide="moon" class="h-5 w-5"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold tracking-tight text-slate-100">Spooky Nights</h3>
+                <p class="mt-1 text-sm text-slate-300">Join us for a night of spooky adventures and anime thrills. Click to explore!</p>
+                <button data-nav="story" target="_blank" class="text-xs px-3 py-1.5 rounded-md border border-orange-400/20 text-orange-300 hover:text-orange-200 bg-orange-500/10 hover:bg-orange-500/20 transition cursor-pointer">COMING SOON</button>
+              </div>
+              </div>
+            </article>
+            </div>
+
+            <!-- Right Column: Animation -->
+            <div class="flex justify-center items-center h-full">
+              <lottie-player src="Swinging_Happ.json" background="transparent" speed="1" style="width: 400px; height: 400px;" loop autoplay></lottie-player>
+            </div>
+      </section>
+
+      <!-- Gallery Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 relative">  
+      <section id="gallery" class="relative py-16 sm:py-20">
+          <div class="max-w-screen-lg">
+            <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight text-white">Shameless Gallery</h1>
+            <p class="mt-2 text-sm sm:text-base text-neutral-400">
+                We're shameless about our chaos, our cosplay, and our crazy memories — and we're putting it all here for you to scroll endlessly! From epic stages to goofy moments, AniCos knows how to make every event unforgettable and worth flexing.
+                So go ahead, take a shameless peek you'll find laughter, passion, creativity, and maybe even yourself hidden somewhere in the crowd ✨<br>
+                <br><strong class="text-l">AniCos doesn't just make events… we make memories worth showing off shamelessly!</strong>
+            </p>
+          </div>
+        </div>
+
+          <!-- Gallery lanes -->
+          <div class="mt-8 space-y-6">
+            <!-- Lane 1 -->
+            <div id="lane-1" class="relative overflow-hidden rounded-2xl ring-1 ring-white/10 bg-gradient-to-b from-white/[0.03] to-transparent h-40 md:h-44 lg:h-56">
+              <!-- soft glow -->
+              <div class="pointer-events-none absolute inset-0 opacity-50 blur-3xl" style="background: radial-gradient(1200px 160px at 20% 50%, rgba(59,130,246,0.12), transparent), radial-gradient(1200px 160px at 80% 50%, rgba(16,185,129,0.12), transparent);"></div>
+              <!-- edge fade -->
+              <div class="pointer-events-none absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-neutral-950 via-neutral-950/80 to-transparent"></div>
+              <div class="pointer-events-none absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-neutral-950 via-neutral-950/80 to-transparent"></div>
+            </div>
+
+            <!-- Divider -->
+            <div class="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+            <!-- Lane 2 -->
+            <div id="lane-2" class="relative overflow-hidden rounded-2xl ring-1 ring-white/10 bg-gradient-to-b from-white/[0.03] to-transparent h-40 md:h-44 lg:h-56">
+              <div class="pointer-events-none absolute inset-0 opacity-50 blur-3xl" style="background: radial-gradient(1200px 160px at 30% 50%, rgba(244,114,182,0.12), transparent), radial-gradient(1200px 160px at 70% 50%, rgba(99,102,241,0.12), transparent);"></div>
+              <div class="pointer-events-none absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-neutral-950 via-neutral-950/80 to-transparent"></div>
+              <div class="pointer-events-none absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-neutral-950 via-neutral-950/80 to-transparent"></div>
+            </div>
+
+            <div class="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+            <!-- Lane 3 -->
+            <div id="lane-3" class="relative overflow-hidden rounded-2xl ring-1 ring-white/10 bg-gradient-to-b from-white/[0.03] to-transparent h-40 md:h-44 lg:h-56">
+              <div class="pointer-events-none absolute inset-0 opacity-50 blur-3xl" style="background: radial-gradient(1200px 160px at 40% 50%, rgba(14,165,233,0.12), transparent), radial-gradient(1200px 160px at 60% 50%, rgba(236,72,153,0.12), transparent);"></div>
+              <div class="pointer-events-none absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-neutral-950 via-neutral-950/80 to-transparent"></div>
+              <div class="pointer-events-none absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-neutral-950 via-neutral-950/80 to-transparent"></div>
+            </div>
+          </div>
+         <!-- Controls -->
+            <div class="flex flex-col items-end sm:items-end gap-3 align-center mt-10">
+              <!-- Speed -->
+              <div class="flex items-center gap-3">
+                <div class="text-xs text-neutral-400">Speed</div>
+                <div class="inline-flex rounded-lg ring-1 ring-white/10 overflow-hidden bg-white/5">
+                  <button data-speed="slow" class="px-3 py-1.5 text-xs text-neutral-300 hover:text-white hover:bg-white/10 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/30">Slow</button>
+                  <button data-speed="normal" class="px-3 py-1.5 text-xs text-white bg-white/10 hover:bg-white/15 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/30">Normal</button>
+                  <button data-speed="fast" class="px-3 py-1.5 text-xs text-neutral-300 hover:text-white hover:bg-white/10 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/30">Fast</button>
+                </div>
+              </div>
+
+              <!-- Image count -->
+              <div class="flex items-center gap-3">
+                <div class="text-xs text-neutral-400">Images used</div>
+                <div class="inline-flex rounded-lg ring-1 ring-white/10 overflow-hidden bg-white/5">
+                  <button data-count="10" class="px-3 py-1.5 text-xs text-white bg-white/10 hover:bg-white/15 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/30">10</button>
+                  <button data-count="20" class="px-3 py-1.5 text-xs text-neutral-300 hover:text-white hover:bg-white/10 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/30">20</button>
+                  <button data-count="50" class="px-3 py-1.5 text-xs text-neutral-300 hover:text-white hover:bg-white/10 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/30">50</button>
+                </div>
+              </div>
+
+              <!-- Toggles -->
+                <div class="flex items-center gap-4 hidden"></div>
+                <!-- Pause on hover -->
+                <button view="hidden" id="toggle-hover" aria-pressed="true" class="group flex items-center gap-2 px-3 py-1.5 rounded-lg ring-1 ring-white/10 bg-white/5 hover:bg-white/10 transition">
+                  <span class="relative inline-flex h-5 w-9 items-center">
+                  <span class="absolute inset-0 rounded-full bg-white/10"></span>
+                  <span class="absolute inset-0 rounded-full ring-1 ring-white/10"></span>
+                  <span class="absolute left-0.5 top-0.5 h-4 w-4 rounded-full bg-white/70 translate-x-0 group-aria-pressed:translate-x-[1.05rem] transition-transform"></span>
+                  </span>
+                  <span class="text-xs text-neutral-300">Pause on hover</span>
+                </button>
+
+                <!-- Save power -->
+                <button id="toggle-power" aria-pressed="false" class="group flex items-center gap-2 px-3 py-1.5 rounded-lg ring-1 ring-white/10 bg-white/5 hover:bg-white/10 transition">
+                  <!-- lucide:gauge -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-neutral-300" stroke="Green" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6a9 9 0 0 1 9 9h-3a6 6 0 1 0-12 0H3a9 9 0 0 1 9-9Zm0 0v6" />
+                  </svg>
+                  <span class="text-xs text-neutral-300">Refresh Rate</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+      <script>
+        const svgNS = 'http://www.w3.org/2000/svg';
+
+        const MAX_IMAGES = 50;
+        const fallbackCount = 10;
+        const allImages = [
+          "static/Images/Akatsuki Adarsh.webp",
+          "static/Images/Anicos Flag X Cosplayers.webp",
+          "static/Images/Animania Cosplay Photo.webp",
+          "static/Images/Chain Saw Man 2.webp",
+          "static/Images/Cosplayers @ Spooky Nights.webp",
+          "static/Images/Cosplayers Animania.webp",
+          "static/Images/IMG-20231030-WA0118.webp",
+          "static/Images/IMG-20231030-WA0158.webp",
+          "static/Images/IMG-20231031-WA0014.webp",
+          "static/Images/IMG-20231031-WA0017.webp",
+          "static/Images/IMG-20231031-WA0183.webp",
+          "static/Images/IMG-20241014-WA0017.webp",
+          "static/Images/IMG-20241014-WA0021.webp",
+          "static/Images/IMG-20241014-WA0026.webp",
+          "static/Images/IMG-20241014-WA0035.webp",
+          "static/Images/IMG-20241014-WA0039.webp",
+          "static/Images/IMG-20241014-WA0064.webp",
+          "static/Images/IMG-20241019-WA0024.webp",
+          "static/Images/IMG-20241019-WA0026.webp",
+          "static/Images/IMG_0513.webp",
+          "static/Images/IMG_0525.webp",
+          "static/Images/IMG_20231030_153840.webp",
+          "static/Images/IMG_20231030_170536.webp",
+          "static/Images/IMG_5866.webp",
+          "static/Images/IMG_9211.webp",
+          "static/Images/IMG_9298.webp",
+          "static/Images/IMG_9380.webp",
+          "static/Images/IMG_9445.webp",
+          "static/Images/IMG_9480.webp",
+          "static/Images/IMG_9481.webp",
+          "static/Images/IMG_9497.webp",
+          "static/Images/IMG_9504.webp",
+          "static/Images/IMG_9527.webp",
+          "static/Images/IMG_9528.webp",
+          "static/Images/IMG_9535.webp",
+          "static/Images/IMG_9548.webp",
+          "static/Images/IMG_9553.webp",
+          "static/Images/IMG_9554.webp",
+          "static/Images/IMG_9569.webp",
+          "static/Images/IMG_9570.webp",
+          "static/Images/IMG_9606.webp",
+          "static/Images/IMG_9615.webp",
+          "static/Images/Maid Neko Girl.webp",
+          "static/Images/Neko Girl.webp",
+          "static/Images/psycho anicos.webp",
+          "static/Images/Scare Crow.webp",
+          "static/Images/WhatsApp Image 2025-07-29 at 22.48.45.webp",
+          "static/Images/image_1.webp",
+          "static/Images/image_2.webp",
+          "static/Images/image_3.webp",
+          "static/Images/image_4.webp",
+          "static/Images/image_5.webp",
+          "static/Images/image_6.webp",
+          "static/Images/image_7.webp",
+          "static/Images/image_8.webp",
+          "static/Images/image_9.webp",
+          "static/Images/image_10.webp",
+          "static/Images/image_11.webp",
+          "static/Images/image_12.webp",
+          "static/Images/image_13.webp",
+          "static/Images/image_14.webp",
+          "static/Images/image_15.webp",
+          "static/Images/image_16.webp",
+          "static/Images/image_17.webp",
+        ];
+
+        const lanes = [
+          { elId: 'lane-1', direction: 1, baseDur: 42 },  
+          { elId: 'lane-2', direction: -1, baseDur: 56 },
+          { elId: 'lane-3', direction: 1, baseDur: 48 }
+        ];
+
+        const state = {
+          speed: 'normal',
+          count: 10,
+          pauseOnHover: true,
+          savePower: true
+        };
+
+        const speedFactor = () => {
+          switch (state.speed) {
+            case 'slow': return 1.4;
+            case 'fast': return 0.7;
+            default: return 1.0;
+          }
+        };
+
+        function clearNode(node) {
+          while (node.firstChild) node.removeChild(node.firstChild);
+        }
+
+        function buildLane(containerId, opts) {
+          const container = document.getElementById(containerId);
+          if (!container) return;
+
+          clearNode(container);
+          
+          const H = 200;
+          const cardH = 180;                       
+          const cardW = 300;                   
+          const gap = 20;
+          const rounded = 18;
+
+          const uniqueCount = Math.max(1, Math.min(allImages.length, state.savePower ? Math.min(state.count, fallbackCount) : state.count));
+
+          // Compute group width: N cards + gaps
+          const W = uniqueCount * cardW + (uniqueCount - 1) * gap;
+
+          const svg = document.createElementNS(svgNS, 'svg');
+          svg.setAttribute('width', '100%');
+          svg.setAttribute('height', '100%');
+          svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+          svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+          svg.setAttribute('aria-hidden', 'true');
+
+          // Build defs (drop shadow filter and per-image clipPaths)
+          const defs = document.createElementNS(svgNS, 'defs');
+
+          // Glow filter
+          const filter = document.createElementNS(svgNS, 'filter');
+          filter.setAttribute('id', `${containerId}-glow`);
+          filter.setAttribute('x', '-20%');
+          filter.setAttribute('y', '-20%');
+          filter.setAttribute('width', '140%');
+          filter.setAttribute('height', '140%');
+
+          const feDrop1 = document.createElementNS(svgNS, 'feDropShadow');
+          feDrop1.setAttribute('dx', '0');
+          feDrop1.setAttribute('dy', '0');
+          feDrop1.setAttribute('stdDeviation', state.savePower ? '2' : '4');
+          feDrop1.setAttribute('flood-color', 'rgba(59,130,246,0.25)'); 
+          filter.appendChild(feDrop1);
+
+          const feDrop2 = document.createElementNS(svgNS, 'feDropShadow');
+          feDrop2.setAttribute('dx', '0');
+          feDrop2.setAttribute('dy', '0');
+          feDrop2.setAttribute('stdDeviation', state.savePower ? '1' : '2.5');
+          feDrop2.setAttribute('flood-color', 'rgba(236,72,153,0.25)');   
+          filter.appendChild(feDrop2);
+
+          defs.appendChild(filter);
+
+          // Build clip paths per tile (userSpaceOnUse so we can position with x/y)
+          for (let i = 0; i < uniqueCount; i++) {
+            const x = i * (cardW + gap);
+            const cp = document.createElementNS(svgNS, 'clipPath');
+            cp.setAttribute('id', `${containerId}-clip-${i}`);
+            cp.setAttribute('clipPathUnits', 'userSpaceOnUse');
+
+            const r = document.createElementNS(svgNS, 'rect');
+            r.setAttribute('x', `${x}`);
+            r.setAttribute('y', `${(H - cardH) / 2}`);
+            r.setAttribute('width', `${cardW}`);
+            r.setAttribute('height', `${cardH}`);
+            r.setAttribute('rx', `${rounded}`);
+            r.setAttribute('ry', `${rounded}`);
+            cp.appendChild(r);
+            defs.appendChild(cp);
+          }
+
+          svg.appendChild(defs);
+
+          // Helper to build a group of images across W width
+          function buildImageGroup(groupOffsetX) {
+            const g = document.createElementNS(svgNS, 'g');
+            g.setAttribute('transform', `translate(${groupOffsetX} 0)`);
+
+            for (let i = 0; i < uniqueCount; i++) {
+              const x = i * (cardW + gap);
+              const y = (H - cardH) / 2;
+
+              const frame = document.createElementNS(svgNS, 'rect');
+              frame.setAttribute('x', `${x}`);
+              frame.setAttribute('y', `${y}`);
+              frame.setAttribute('width', `${cardW}`);
+              frame.setAttribute('height', `${cardH}`);
+              frame.setAttribute('rx', `${rounded}`);
+              frame.setAttribute('ry', `${rounded}`);
+              frame.setAttribute('fill', 'rgba(255,255,255,0.03)');
+              frame.setAttribute('stroke', 'rgba(255,255,255,0.07)');
+              frame.setAttribute('stroke-width', '1');
+              g.appendChild(frame);
+
+              const img = document.createElementNS(svgNS, 'image');
+              const randomIndex = Math.floor(Math.random() * allImages.length);
+              img.setAttributeNS('http://www.w3.org/1999/xlink', 'href', allImages[randomIndex]);
+              img.setAttribute('x', `${x}`);
+              img.setAttribute('y', `${y}`);
+              img.setAttribute('width', `${cardW}`);
+              img.setAttribute('height', `${cardH}`);
+              img.setAttribute('clip-path', `url(#${containerId}-clip-${i})`);
+              img.setAttribute('filter', `url(#${containerId}-glow)`);
+              img.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+
+              img.style.cursor = 'pointer';
+
+              img.addEventListener('mouseenter', () => {
+                frame.setAttribute('stroke', 'rgba(255,255,255,0.18)');
+              });
+              img.addEventListener('mouseleave', () => {
+                frame.setAttribute('stroke', 'rgba(255,255,255,0.07)');
+              });
+
+              g.appendChild(img);
+            }
+            return g;
+          }
+
+          // Build duplicated groups for endless loop
+          const g1 = buildImageGroup(0);
+          const g2 = buildImageGroup(W);
+
+          const dur = Math.max(12, Math.round(opts.baseDur * speedFactor())); // clamp minimum
+          const toLeft = opts.direction === 1;
+
+          // Animate groups using native SVG (smooth, GPU-friendly)
+          const a1 = document.createElementNS(svgNS, 'animateTransform');
+          a1.setAttribute('attributeName', 'transform');
+          a1.setAttribute('type', 'translate');
+          a1.setAttribute('dur', `${dur}s`);
+          a1.setAttribute('repeatCount', 'indefinite');
+          a1.setAttribute('calcMode', 'linear');
+          if (toLeft) {
+            a1.setAttribute('from', `0 0`);
+            a1.setAttribute('to', `-${W} 0`);
+          } else {
+            a1.setAttribute('from', `0 0`);
+            a1.setAttribute('to', `${W} 0`);
+          }
+          g1.appendChild(a1);
+
+          const a2 = document.createElementNS(svgNS, 'animateTransform');
+          a2.setAttribute('attributeName', 'transform');
+          a2.setAttribute('type', 'translate');
+          a2.setAttribute('dur', `${dur}s`);
+          a2.setAttribute('repeatCount', 'indefinite');
+          a2.setAttribute('calcMode', 'linear');
+          if (toLeft) {
+            g2.setAttribute('transform', `translate(${W} 0)`);
+            a2.setAttribute('from', `${W} 0`);
+            a2.setAttribute('to', `0 0`);
+          } else {
+            g2.setAttribute('transform', `translate(-${W} 0)`);
+            a2.setAttribute('from', `-${W} 0`);
+            a2.setAttribute('to', `0 0`);
+          }
+          g2.appendChild(a2);
+
+          svg.appendChild(g1);
+          svg.appendChild(g2);
+          container.appendChild(svg);
+
+          // Pause on hover
+          if (state.pauseOnHover) {
+            container.addEventListener('mouseenter', () => svg.pauseAnimations());
+            container.addEventListener('mouseleave', () => svg.unpauseAnimations());
+          }
+
+          // Save a reference for global pause/resume
+          container._svg = svg;
+          container._duration = dur;
+        }
+
+        function buildAll() {
+          // Rebuild each lane with current state
+          lanes.forEach((lane, idx) => {
+            buildLane(lane.elId, lane);
+          });
+        }
+
+        // Controls
+        const speedButtons = document.querySelectorAll('[data-speed]');
+        speedButtons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            speedButtons.forEach(b => {
+              b.classList.remove('bg-white/10', 'text-white');
+              b.classList.add('text-neutral-300');
+            });
+            btn.classList.add('bg-white/10', 'text-white');
+            state.speed = btn.getAttribute('data-speed');
+            buildAll();
+          });
+        });
+
+        const countButtons = document.querySelectorAll('[data-count]');
+        countButtons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            countButtons.forEach(b => {
+              b.classList.remove('bg-white/10', 'text-white');
+              b.classList.add('text-neutral-300');
+            });
+            btn.classList.add('bg-white/10', 'text-white');
+            state.count = parseInt(btn.getAttribute('data-count'), 10);
+            buildAll();
+          });
+        });
+
+        const toggleHover = document.getElementById('toggle-hover');
+        toggleHover.addEventListener('click', () => {
+          const current = toggleHover.getAttribute('aria-pressed') === 'true';
+          const next = !current;
+          toggleHover.setAttribute('aria-pressed', String(next));
+          state.pauseOnHover = next;
+          buildAll();
+        });
+
+        const togglePower = document.getElementById('toggle-power');
+        // Set ON by default
+        togglePower.setAttribute('aria-pressed', 'true');
+        togglePower.classList.add('bg-emerald-500/10');
+        state.savePower = true;
+        togglePower.addEventListener('click', () => {
+          const current = togglePower.getAttribute('aria-pressed') === 'true';
+          const next = !current;
+          togglePower.setAttribute('aria-pressed', String(next));
+          if (next) {
+            togglePower.classList.add('bg-emerald-500/10');
+          } else {
+            togglePower.classList.remove('bg-emerald-500/10');
+          }
+          state.savePower = next;
+          buildAll();
+        });
+
+        // Pause when offscreen (performance friendly)
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const svg = entry.target._svg;
+            if (!svg) return;
+            if (entry.isIntersecting) svg.unpauseAnimations();
+            else svg.pauseAnimations();
+          });
+        }, { root: null, threshold: 0.01 });
+
+        // Initial build and observe
+        document.addEventListener('DOMContentLoaded', () => {
+          buildAll();
+          lanes.forEach(l => observer.observe(document.getElementById(l.elId)));
+        });
+
+        function createImageViewer() {
+          const viewer = document.createElement('div');
+          viewer.id = 'image-viewer';
+          viewer.style.position = 'fixed';
+          viewer.style.top = '0';
+          viewer.style.left = '0';
+          viewer.style.width = '100%';
+          viewer.style.height = '100%';
+          viewer.style.background = 'rgba(0, 0, 0, 0.8)';
+          viewer.style.display = 'none';
+          viewer.style.alignItems = 'center';
+          viewer.style.justifyContent = 'center';
+          viewer.style.zIndex = '1000';
+
+          const img = document.createElement('img');
+          img.id = 'viewer-image';
+          img.style.maxWidth = '90%';
+          img.style.maxHeight = '90%';
+          img.style.border = '5px solid white';
+          img.style.borderRadius = '10px';
+          viewer.appendChild(img);
+
+          const closeButton = document.createElement('button');
+          closeButton.textContent = '×';
+          closeButton.style.position = 'absolute';
+          closeButton.style.top = '20px';
+          closeButton.style.right = '20px';
+          closeButton.style.fontSize = '2rem';
+          closeButton.style.color = 'white';
+          closeButton.style.background = 'none';
+          closeButton.style.border = 'none';
+          closeButton.style.cursor = 'pointer';
+          closeButton.addEventListener('click', () => {
+            viewer.style.display = 'none';
+          });
+          viewer.appendChild(closeButton);
+
+          document.body.appendChild(viewer);
+
+          return viewer;
+        }
+
+        const imageViewer = createImageViewer();
+
+        function enableImageClick() {
+          const images = document.querySelectorAll('image');
+          images.forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', () => {
+              const src = img.getAttributeNS('http://www.w3.org/1999/xlink', 'href');
+              const viewerImage = document.getElementById('viewer-image');
+              viewerImage.src = src;
+              imageViewer.style.display = 'flex';
+            });
+          });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+          enableImageClick();
+        });
+      </script>
+    </main>
+
+    <!-- Footer (moved outside main for global visibility) -->
+    <footer id="main-footer" class="py-10 border-t border-white/10 mt-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+        <p>© 2025 AniCos. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="https://forms.gle/CmdgKDX7EXQystpp6" target="_blank" class="hover:text-slate-300 transition inline-flex items-center gap-1">
+            <i data-lucide="swords" class="h-4 w-4"></i> Get Invite
+          <a href="#" data-nav="story" class="hover:text-slate-300 transition inline-flex items-center gap-1">
+            <i data-lucide="book-open" class="h-4 w-4"></i> Event
+          </a>
+          <a href="#" data-nav="gallery" class="hover:text-slate-300 transition inline-flex items-center gap-1">
+            <i data-lucide="calendar" class="h-4 w-4"></i> Gallery
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script>
+      // Init icons
+      document.addEventListener('DOMContentLoaded', () => {
+        if (window.lucide) {
+          window.lucide.createIcons({ attrs: { 'stroke-width': 1.5 } });
+        }
+      });
+
+      // Section navigation with clash animation
+      const sections = ['home', 'story', 'gallery'];
+      let current = 'home';
+
+  const ghibliLottie = document.getElementById('ghibliLottie');
+  const navButtons = Array.from(document.querySelectorAll('[data-nav]'));
+  
+
+      function showSection(id) {
+        sections.forEach(s => {
+          document.getElementById(s).classList.toggle('hidden', s !== id);
+        });
+        current = id;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function clashTo(id) {
+        const overlay = document.getElementById('clashOverlay');
+        const clashBg = document.getElementById('clashBg');
+        const ghibliLottie = document.getElementById('ghibliLottie');
+
+        // Show overlay and animate blur background
+        overlay.classList.remove('hidden');
+        overlay.classList.add('flex');
+        clashBg.classList.remove('opacity-0');
+        clashBg.classList.add('opacity-50');
+        ghibliLottie.classList.remove('opacity-0');
+        ghibliLottie.classList.add('opacity-50');
+        
+        setTimeout(() => {
+          showSection(id);
+        }, 300); // Reduced delay for faster transition
+
+        setTimeout(() => {
+          ghibliLottie.classList.remove('opacity-50');
+          ghibliLottie.classList.add('opacity-0');
+          clashBg.classList.remove('opacity-50');
+          clashBg.classList.add('opacity-0');
+
+          setTimeout(() => {
+            overlay.classList.remove('flex');
+            overlay.classList.add('hidden');
+          }, 200); // Reduced fade-out duration
+        }, 600); // Reduced overall duration
+      }
+     
+      // Bind nav
+      document.querySelectorAll('[data-nav]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const id = btn.getAttribute('data-nav');
+          clashTo(id);
+        });
+      });
+
+
+      // Initial staged reveal using transitions (not JS animations)
+      const staged = Array.from(document.querySelectorAll('[data-animate]'));
+      window.addEventListener('load', () => {
+        staged.forEach((el, i) => {
+          const baseDelay = 80;
+          setTimeout(() => {
+            el.classList.remove('opacity-0','translate-y-4','blur-sm');
+          }, 150 + i * baseDelay);
+        });
+        // Pop effect for rio Lottie on load if home is visible
+        triggerRioPop();
+      });
+
+      // Pop effect for rio Lottie animation
+      function triggerRioPop() {
+        const rioLottie = document.getElementById('rioLottie');
+        if (rioLottie) {
+          rioLottie.classList.remove('scale-75','opacity-0');
+          rioLottie.classList.add('scale-100','opacity-100');
+        }
+      }
+
+      // Also trigger pop when home section is shown
+      const origShowSection = showSection;
+      showSection = function(id) {
+        origShowSection(id);
+        if (id === 'home') {
+          setTimeout(triggerRioPop, 100);
+        }
+      }
+
+    sections.forEach(s => {
+      const el = document.getElementById(s);
+      if (el) {
+        el.classList.add('hidden');
+        el.style.display = '';
+      }
+    });
+    document.getElementById('home').classList.remove('hidden');
+      current = 'home';
+      showSection('home');
+      // Redirect to event pages with fade-out effect
+      function redirectToEventPage(eventPage) {
+        const body = document.querySelector('body');
+        body.style.transition = 'opacity 0.5s ease-in-out';
+        body.style.opacity = 0;
+
+        setTimeout(() => {
+          window.location.href = eventPage;
+        }, 500);
+      }
+
+      // Add Giblin Tribute Animation for Page Transitions
+      document.addEventListener('DOMContentLoaded', () => {
+        const navButtons = document.querySelectorAll('[data-nav]');
+
+        navButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const target = button.getAttribute('data-nav');
+            const sections = document.querySelectorAll('section');
+
+            sections.forEach(section => {
+              section.style.display = section.id === target ? 'block' : 'none';
+            });
+
+            // Add Giblin Tribute animation for page transitions
+            const activeSection = document.querySelector(`#${target}`);
+            if (activeSection) {
+              const animationPlayer = document.createElement('lottie-player');
+              animationPlayer.setAttribute('src', 'Gibli Tribute.json');
+              animationPlayer.setAttribute('background', 'transparent');
+              animationPlayer.setAttribute('speed', '1');
+              animationPlayer.setAttribute('style', 'width: 100%; height: 100%; position: fixed; bottom: 0; left: 0; z-index: 9999;');
+              animationPlayer.setAttribute('autoplay', '');
+
+              document.body.appendChild(animationPlayer);
+
+              setTimeout(() => {
+                animationPlayer.remove();
+                activeSection.style.opacity = 0;
+                activeSection.style.transition = 'opacity 0.5s ease-in-out';
+                setTimeout(() => {
+                  activeSection.style.opacity = 1;
+                }, 50);
+              }, 700);
+            }
+          });
+        });
+      });
+
+      // Ensure Event Pages Open in Same Tab
+      document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        link.removeAttribute('target');
+      });
+      document.addEventListener('DOMContentLoaded', () => {
+        const eventLinks = document.querySelectorAll('a[href="coscon_details.html"], a[href="spooky_nights.html"]');
+
+        eventLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetUrl = link.getAttribute('href');
+
+            // Add Giblin Tribute animation for page transitions
+            const animationPlayer = document.createElement('lottie-player');
+            animationPlayer.setAttribute('src', 'Gibli Tribute.json');
+            animationPlayer.setAttribute('background', 'transparent');
+            animationPlayer.setAttribute('speed', '1');
+            animationPlayer.setAttribute('style', 'width: 100%; height: 100%; position: fixed; top: 0; left: 0; z-index: 9999;');
+            animationPlayer.setAttribute('autoplay', '');
+
+            document.body.appendChild(animationPlayer);
+
+            setTimeout(() => {
+              animationPlayer.remove();
+              window.location.href = targetUrl;
+            }, 700);
+          });
+        });
+      });
+
+      // Display section based on URL hash
+      document.addEventListener('DOMContentLoaded', () => {
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+          const targetSection = document.getElementById(hash);
+          if (targetSection) {
+            targetSection.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }
+      });
+    </script>
+
+    <div id="clashOverlay" class="fixed inset-0 z-[60] hidden items-center justify-center bg-slate-950/80 backdrop-blur-xl">
+      <div id="clashBg" class="absolute inset-0 bg-slate-950/80 backdrop-blur-xl opacity-0 transition-opacity duration-500"></div>
+      <lottie-player id="ghibliLottie" background="transparent" speed="0.8" style="width: 30rem; height: 30rem;" loop autoplay class="opacity-0 transition-opacity duration-500 z-10"></lottie-player>
+    </div>
+  </body>
+</html>
+
+
+
+
